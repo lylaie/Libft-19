@@ -6,12 +6,13 @@
 #    By: audumont <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/10 15:13:55 by audumont          #+#    #+#              #
-#    Updated: 2019/10/19 17:34:06 by audumont         ###   ########.fr        #
+#    Updated: 2019/10/25 14:28:51 by audumont         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-CFLAGS = -Wall -Werror -Wextra -I. -c
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
 SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	   ft_isdigit.c ft_isprint.c ft_memcpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c\
 	   ft_memmove.c ft_memset.c ft_strchr.c ft_strdup.c ft_strlcat.c ft_strlcpy.c\
@@ -20,39 +21,30 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	   ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_memccpy.c\
 	   ft_calloc.c ft_itoa.c ft_strmapi.c
 
-SRCS_B = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstlast_bonus.c ft_lstsize_bonus.c\
+SBONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 		 ft_lstadd_back_bonus.c ft_lstdelone_bonus.c
 
+OBJECTS = $(SRCS:%.c=%.o)
+OBONUS = $(SBONUS:%.c=%.o)
 
-OBJECTS = ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isascii.o\
-		  ft_isdigit.o ft_isprint.o ft_memcpy.o ft_memchr.o ft_memcmp.o \
-		  ft_memcpy.o ft_memmove.o ft_memset.o ft_strchr.o ft_strdup.o ft_strlcat.o\
-		  ft_strlcpy.o ft_strlen.o ft_strncmp.o ft_strnstr.o ft_strrchr.o\
-		  ft_tolower.o ft_toupper.o ft_strjoin.o ft_substr.o ft_strtrim.o\
-		  ft_split.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o \
-		  ft_memccpy.o ft_calloc.o ft_itoa.o ft_strmapi.o
-
-OBJECTS_B = ft_lstnew_bonus.o ft_lstadd_front_bonus.o ft_lstlast_bonus.o \
-			ft_lstsize_bonus.o ft_lstadd_back_bonus.o ft_lstdelone_bonus.o
-
-all: $(NAME)
+all : $(NAME)
 
 $(NAME) : $(OBJECTS)
 			ar rcs $(NAME) $(OBJECTS)
 
-$(OBJETCS) : $(SRCS)
-			gcc $(CFLAGS) $(SRCS)
+%.o : %.c
+		gcc $(CFLAGS) -c -o $@ $<
 
-$(OBJECTS_B) : $(SRCS_B)
-			gcc $(CFLAGS) $(SRCS_B)
+clean :
+		rm -f $(OBJECTS)
 
-bonus: fclean $(OBJETCS) $(OBJECTS_B)
-		ar rcs libft.a $(OBJETCS) $(OBJECTS_B)
+fclean : clean
+		rm -f $(NAME) $(OBONUS)
 
-clean:
-			rm -f $(OBJECTS) $(OBJECTS_B)
+bonus : $(OBONUS)
+		ar rc $(NAME) $(OBONUS)
 
-fclean: clean
-			rm -f $(NAME)
+re : fclean all
 
-re: fclean all
+so: $(OBJETCS) libft.h
+		$(CC) -shared -fPIC -Wl,-soname,libft.so -o libft.so $(OBJECTS)
