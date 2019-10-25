@@ -6,7 +6,7 @@
 /*   By: audumont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 11:45:01 by audumont          #+#    #+#             */
-/*   Updated: 2019/10/25 15:54:12 by audumont         ###   ########.fr       */
+/*   Updated: 2019/10/25 16:56:40 by audumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
 void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstclear(t_list **lst, void (*del)(void*));
+void				ft_lstadd_back(t_list **alst, t_list *new);
 
 #endif
