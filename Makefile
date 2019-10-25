@@ -6,7 +6,7 @@
 #    By: audumont <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/10 15:13:55 by audumont          #+#    #+#              #
-#    Updated: 2019/10/25 14:28:51 by audumont         ###   ########.fr        #
+#    Updated: 2019/10/25 16:00:28 by audumont         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	   ft_calloc.c ft_itoa.c ft_strmapi.c
 
 SBONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
-		 ft_lstadd_back_bonus.c ft_lstdelone_bonus.c
+		 ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstlast.c \
+		 ft_lstclear_bonus.c 
 
 OBJECTS = $(SRCS:%.c=%.o)
 OBONUS = $(SBONUS:%.c=%.o)

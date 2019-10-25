@@ -6,7 +6,7 @@
 /*   By: audumont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 13:52:11 by audumont          #+#    #+#             */
-/*   Updated: 2019/10/17 15:42:26 by audumont         ###   ########.fr       */
+/*   Updated: 2019/10/25 16:17:13 by audumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@ static int			ft_sign(char c)
 		return (1);
 	else
 		return (-1);
+}
+
+static int			ft_long(unsigned int result, int sign)
+{
+	if (sign == 1)
+		return (-1);
+	else if (result != 2147483648)
+		return (0);
+	else
+		return (-214783648);
 }
 
 int					ft_atoi(const char *str)
@@ -36,6 +46,8 @@ int					ft_atoi(const char *str)
 		sign = ft_sign(str[i++]);
 	while (str[i] <= '9' && str[i] >= '0')
 	{
+		if (result > 2147483647)
+			return (ft_long(result, sign));
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: audumont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 21:34:31 by audumont          #+#    #+#             */
-/*   Updated: 2019/10/19 15:14:33 by audumont         ###   ########.fr       */
+/*   Updated: 2019/10/25 15:36:11 by audumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t size)
 	unsigned int	index;
 
 	index = 0;
+	if (!src)
+		return (size);
 	if (size > 0)
 	{
 		while (--size && src[index])

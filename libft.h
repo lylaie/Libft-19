@@ -6,7 +6,7 @@
 /*   By: audumont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 11:45:01 by audumont          #+#    #+#             */
-/*   Updated: 2019/10/25 14:31:38 by audumont         ###   ########.fr       */
+/*   Updated: 2019/10/25 15:54:12 by audumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,10 @@ char				*ft_itoa(int nb);
 char				*ft_strmapi(char const *str, char (*f)(unsigned int, char));
 
 t_list				*ft_lstnew(void *content);
-void				ft_lsadd_front(t_list **alst, t_list *new);
+void				ft_lstadd_front(t_list **alst, t_list *new);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
-void				ft_lstdelone(t_list *lst, void(*del)(void*));
+void				ft_lstdelone(t_list *lst, void (*del)(void*));
+void				ft_lstclear(t_list **lst, void (*del)(void*));
 
 #endif

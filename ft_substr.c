@@ -6,7 +6,7 @@
 /*   By: audumont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 19:11:24 by audumont          #+#    #+#             */
-/*   Updated: 2019/10/19 16:52:48 by audumont         ###   ########.fr       */
+/*   Updated: 2019/10/25 15:43:53 by audumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char				*ft_substr(char const *s, unsigned int start, size_t len)
 	char			*dest;
 	unsigned int	index;
 
+	if (!s)
+		return (NULL);
 	if (start > ft_strlen(s))
 	{
 		if (!(dest = (char*)malloc(sizeof(char))))
