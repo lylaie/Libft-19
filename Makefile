@@ -6,7 +6,7 @@
 #    By: audumont <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/10 15:13:55 by audumont          #+#    #+#              #
-#    Updated: 2019/10/25 16:00:28 by audumont         ###   ########.fr        #
+#    Updated: 2019/10/27 11:40:41 by audumont         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,10 +37,10 @@ $(NAME) : $(OBJECTS)
 		gcc $(CFLAGS) -c -o $@ $<
 
 clean :
-		rm -f $(OBJECTS)
+		rm -f $(OBJECTS) $(OBONUS)
 
 fclean : clean
-		rm -f $(NAME) $(OBONUS)
+		rm -f $(NAME) $(OBONUS) $(OBJECTS)
 
 bonus : $(OBONUS)
 		ar rc $(NAME) $(OBONUS)
