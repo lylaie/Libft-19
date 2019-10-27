@@ -6,7 +6,7 @@
 /*   By: audumont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 14:48:37 by audumont          #+#    #+#             */
-/*   Updated: 2019/10/25 16:05:21 by audumont         ###   ########.fr       */
+/*   Updated: 2019/10/27 11:38:01 by audumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static char				*ft_word(char *str, char c)
 	return (word);
 }
 
-void					ft_free(char **words, int index)
+static void				ft_free(char **words, int index)
 {
 	int					index2;
 
@@ -89,6 +89,7 @@ void					ft_free(char **words, int index)
 		free(words[index2]);
 		index2++;
 	}
+	free(words);
 }
 
 char					**ft_split(const char *s, char c)
