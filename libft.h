@@ -67,4 +67,12 @@ void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstadd_back(t_list **alst, t_list *new);
 
+
+/* ADDITIONNAL FUNCTIONS CREATED FOR OTHER PROJETS */
+
+const char			*ft_c_to_str(char c);
+int					ft_intlen_base(long long int nb, size_t len_base);
+int					ft_isdigit_base(long long int nb, char *base);
+char				*ft_itoa_base(long long int nb, int len_nb, size_t len_base, char *base);
+
 #endif
